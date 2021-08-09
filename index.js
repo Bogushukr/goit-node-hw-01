@@ -1,4 +1,4 @@
-const {listContacts, getContactById, removeContact, addContact} = require('./contacts')
+const { listContacts, getContactById, removeContact, addContact } = require('./contacts');
 
 const { Command } = require('commander');
 const program = new Command();
@@ -9,6 +9,7 @@ program
   .option('-e, --email <type>', 'user email')
   .option('-p, --phone <type>', 'user phone');
 
+  
 program.parse(process.argv);
 
 const argv = program.opts();
@@ -16,19 +17,19 @@ const argv = program.opts();
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case 'list':
-          listContacts();
+      listContacts();
       break;
 
     case 'get':
-          getContactById(id);
+      getContactById(id);
       break;
 
     case 'add':
-          removeContact(name, email, phone);
+      addContact(name, email, phone);
       break;
 
     case 'remove':
-          addContact(id);
+      removeContact(id);
       break;
 
     default:
